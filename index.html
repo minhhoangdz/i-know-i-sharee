@@ -55,7 +55,7 @@
         
         const MY_INFO = {
             name: "Góc Của Tớ",
-            avatar: "./IMG_1355.jpeg", // Avatar ngẫu nhiên, bạn có thể thay link ảnh của bạn
+            avatar: "./IMG_1355.jpeg", 
             bio: "Nơi mình chia sẻ những thủ thuật hay ho, video hướng dẫn app iPhone cho mọi người.",
             social: "Kết nối với mình"
         };
@@ -63,11 +63,10 @@
         const TIPS_DATA = [
             {
                 id: 1,
-                title: "locket Gold",
+                title: "Locket Gold",
                 category: "iOS",
                 content: "Sử dụng tính năng Gold của Locket hoàn toàn FREE.",
                 image: "./Locket Widget.png"
-
             },
             {
                 id: 2,
@@ -75,7 +74,6 @@
                 category: "iOS",
                 content: "Nghe nhạc Spotify không quảng cáo, chuyển bài liên tục với tính năng Premium được up bằng shadowrocket.",
                 image: "./Spotify: Music and Podcasts.png"
-
             },
             {
                 id: 3,
@@ -91,13 +89,13 @@
                 id: 1,
                 title: "Hướng dẫn cài đặt Office 365 miễn phí",
                 desc: "Video này mình hướng dẫn chi tiết cách active bản quyền nhé.",
-                embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" // Thay bằng link embed video của bạn
+                embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ" 
             },
             {
                 id: 2,
                 title: "Up Spotify Premium bằng Shadowrocket",
                 desc: "Hướng Dẫn Full up Spotify Premium.",
-                embedUrl: "https://www.youtube.com/embed/_Bc8ambaTw4?si=ER_J5Wgw1mjLBfwu"
+                embedUrl: "https://www.youtube.com/embed/_Bc8ambaTw4"
             }
         ];
 
@@ -105,12 +103,14 @@
             {
                 id: 1,
                 title: "Locket Gold",
-                url: "https://raw.githubusercontent.com/NightmarketServer/Locket/refs/heads/main/Locketgold-V10.module",    
+                url: "https://raw.githubusercontent.com/NightmarketServer/Locket/refs/heads/main/Locketgold-V10.module",
+                note: "Link tải Module"    
             },
             {
                 id: 2,
-                title: "Spotify Premium"
+                title: "Spotify Premium", // Đã sửa lỗi thiếu dấu ngoặc kép ở đây
                 url: "https://raw.githubusercontent.com/NightmarketServer/Spotify/refs/heads/main/SpotifyPr3.module",
+                note: "Link tải Module"
             },
             {
                 id: 3,
@@ -190,7 +190,7 @@
                     {/* Header */}
                     <header className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6 rounded-b-[2rem] shadow-lg mb-6">
                         <div className="flex items-center gap-4">
-                            <img src={MY_INFO.avatar} alt="Avatar" className="w-16 h-16 rounded-full border-4 border-white/30 shadow-sm" />
+                            <img src={MY_INFO.avatar} alt="Avatar" className="w-16 h-16 rounded-full border-4 border-white/30 shadow-sm object-cover" />
                             <div>
                                 <h1 className="text-xl font-bold">{MY_INFO.name}</h1>
                                 <p className="text-indigo-100 text-xs mt-1 leading-relaxed opacity-90">{MY_INFO.bio}</p>
@@ -219,23 +219,22 @@
                                             <span className="bg-yellow-100 text-yellow-700 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">
                                                 {tip.category}
                                             </span>
-                                            <span className="text-gray-400 text-xs">{tip.date}</span>
+                                            {tip.date && <span className="text-gray-400 text-xs">{tip.date}</span>}
                                         </div>
                                         
-<div className="flex gap-4 items-start">
-    <div className="flex-1">
-        <h3 className="text-lg font-bold text-gray-800 mb-2">{tip.title}</h3>
-        <p className="text-gray-600 text-sm leading-relaxed">{tip.content}</p>
-    </div>
-    {tip.image && (
-        <img 
-            src={tip.image} 
-            alt={tip.title} 
-            className="w-16 h-16 rounded-xl object-cover border border-gray-100 shadow-sm shrink-0"
-        />
-    )}
-</div>
-
+                                        <div className="flex gap-4 items-start">
+                                            <div className="flex-1">
+                                                <h3 className="text-lg font-bold text-gray-800 mb-2">{tip.title}</h3>
+                                                <p className="text-gray-600 text-sm leading-relaxed">{tip.content}</p>
+                                            </div>
+                                            {tip.image && (
+                                                <img 
+                                                    src={tip.image} 
+                                                    alt={tip.title} 
+                                                    className="w-16 h-16 rounded-xl object-cover border border-gray-100 shadow-sm shrink-0"
+                                                />
+                                            )}
+                                        </div>
                                     </div>
                                 ))}
                             </div>
@@ -315,4 +314,5 @@
     </script>
 </body>
 </html>
+
 
