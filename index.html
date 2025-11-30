@@ -86,11 +86,9 @@
                 id: 4,
                 title: "Wink Vip",
                 category: "iOS",
-                content: "Mở khóa tính năng Vip",
+                content: "Mở khóa tính năng Vip", // Đã sửa lỗi thiếu dấu phẩy ở đây
                 image: "./Wink: Video Enhancer & Editor.png"
             }        
-            
-            
         ];
 
         const VIDEOS_DATA = [
@@ -133,7 +131,6 @@
                 url: "https://raw.githubusercontent.com/NightmarketServer/Shadowrocket-Module/refs/heads/main/Module/VIP%20Wink.module",
                 note: "Link tải Module"
             }    
-            
         ];
 
         // --- COMPONENTS ---
@@ -164,7 +161,6 @@
             const [toastMsg, setToastMsg] = React.useState('');
 
             const handleCopy = (text) => {
-                // Fallback copy method for iframes or older browsers
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     navigator.clipboard.writeText(text).then(() => triggerToast());
                 } else {
@@ -313,6 +309,33 @@
                                 ))}
                             </div>
                         )}
+
+                        {/* --- PHẦN MỚI THÊM: GHI CHÚ & LIÊN HỆ --- */}
+                        <div className="px-4 mt-6 space-y-4">
+                            
+                            {/* 1. Ô Ghi chú */}
+                            <div className="bg-amber-50 border border-amber-100 p-4 rounded-2xl">
+                                <h3 className="text-amber-800 font-bold text-sm flex items-center gap-2 mb-1">
+                                    💡 Lưu ý nhỏ:
+                                </h3>
+                                <p className="text-amber-700 text-xs leading-relaxed">
+                                    Nếu link tải bị lỗi hoặc không xem được video, các bạn cứ nhắn tin trực tiếp để tớ hỗ trợ nhé.
+                                </p>
+                            </div>
+
+                            {/* 2. Nút Mạng xã hội */}
+                            <a 
+                                href="https://www.facebook.com/" // <--- NHỚ THAY LINK FACEBOOK/ZALO CỦA BẠN VÀO ĐÂY
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-3 w-full bg-blue-600 text-white py-3.5 rounded-2xl font-bold shadow-lg shadow-blue-200 active:scale-95 transition-transform"
+                            >
+                                {/* Icon tin nhắn */}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                                Kết nối với tớ
+                            </a>
+                        </div>
+
                     </main>
 
                     {/* Footer */}
